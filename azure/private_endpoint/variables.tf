@@ -28,6 +28,7 @@ variable "subresources" {
   type = list(object({
     name = string
   }))
+  default = [{}]
 }
 
 variable "dns_zone_ids" {
