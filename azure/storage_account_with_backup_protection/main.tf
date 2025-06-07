@@ -74,7 +74,7 @@ resource "azurerm_backup_policy_file_share" "fileshare_backup" {
 ## ------
 resource "azurerm_backup_protected_file_share" "frame_file_backup" {
   resource_group_name       = var.resource_group_name
-  recovery_vault_name       = azurerm_recovery_services_vault.vault.name
+  recovery_vault_name       = local.recovery_vault_name
   source_storage_account_id = azurerm_backup_container_storage_account.protection_container.storage_account_id
   source_file_share_name    = azurerm_storage_share.file_share.name
   backup_policy_id          = azurerm_backup_policy_file_share.fileshare_backup.id
