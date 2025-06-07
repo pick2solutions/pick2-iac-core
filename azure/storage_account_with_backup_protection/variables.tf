@@ -24,6 +24,24 @@ variable "existing_recovery_vault_name" {
   default     = null
 }
 
+variable "backup_frequency" {
+  description = "The frequency of the backup for the file share (e.g., Daily, Weekly)."
+  type        = string
+  default     = "Daily"
+}
+
+variable "backup_time" {
+  description = "The time of day to run the backup, in HH:MM format (24-hour clock)."
+  type        = string
+  default     = "23:00"
+}
+
+variable "retention_daily_count" {
+  description = "The number of daily backup copies to retain."
+  type        = number
+  default     = 10
+}
+
 
 variable "file_share_quota" {
   type = number

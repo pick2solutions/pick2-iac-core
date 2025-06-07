@@ -60,12 +60,12 @@ resource "azurerm_backup_policy_file_share" "fileshare_backup" {
   recovery_vault_name = local.recovery_vault_name
 
   backup {
-    frequency = "Daily"
-    time      = "23:00"
+    frequency = var.backup_frequency
+    time      = var.backup_time
   }
 
   retention_daily {
-    count = 10
+    count = var.retention_daily_count
   }
 }
 
